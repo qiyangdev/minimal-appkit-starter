@@ -5,8 +5,8 @@ Thanks for taking the time to contribute!
 ## Getting started
 
 - Fork the repository and create a feature branch.
-- Keep changes focused: this project is intentionally *minimal* — one app file,
-  no storyboard. Avoid adding layers unless they earn their place.
+- Keep changes focused: this project is intentionally *minimal* — a couple of
+  Swift files, no storyboard. Avoid adding layers unless they earn their place.
 - Follow the existing style (4-space indent, explicit over implicit).
 
 ## Building
