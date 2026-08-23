@@ -34,12 +34,13 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
 
     private func buildWindow() {
         window = NSWindow(
-            contentRect: NSRect(x: 0, y: 0, width: 720, height: 480),
+            contentRect: NSRect(x: 0, y: 0, width: 960, height: 560),
             styleMask: [.titled, .closable, .miniaturizable, .resizable],
             backing: .buffered,
             defer: false
         )
         window.contentViewController = SplitViewController()
+        window.contentMinSize = NSSize(width: 720, height: 400)
         window.title = "minimal-appkit-starter"
         window.center()
         window.makeKeyAndOrderFront(nil)

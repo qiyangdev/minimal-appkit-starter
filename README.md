@@ -9,7 +9,7 @@ Two small Swift files, no storyboard:
 
 - wires up `NSApplication` and the app delegate programmatically
 - opens a centered, standard titled window rooted in an `NSSplitViewController`
-  (source-list sidebar + detail pane)
+  with three columns: source-list sidebar, message list, and detail pane
 - provides a minimal menu (Quit, ⌘Q)
 - terminates when the last window closes
 
@@ -38,7 +38,7 @@ Or simply open the project in Xcode and press ⌘R.
 ```
 minimal-appkit-starter/
 ├── AppDelegate.swift          # @main entry point, window, menu
-└── SplitViewController.swift  # root split view: sidebar + detail
+└── SplitViewController.swift  # root split view: three columns (sidebar, list, detail)
 minimal-appkit-starter.xcodeproj/ # build settings only (no storyboard)
 ```
 
