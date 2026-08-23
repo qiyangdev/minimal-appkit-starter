@@ -41,10 +41,20 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         )
         window.contentViewController = SplitViewController()
         window.contentMinSize = NSSize(width: 720, height: 400)
+        window.toolbarStyle = .expanded
+        window.toolbar = makeToolbar()
         window.title = "minimal-appkit-starter"
         window.center()
         window.makeKeyAndOrderFront(nil)
         NSApp.activate(ignoringOtherApps: true)
+    }
+
+    private func makeToolbar() -> NSToolbar {
+        let toolbar = NSToolbar(identifier: "MainToolbar")
+        toolbar.delegate = self
+        toolbar.displayMode = .iconOnly
+        toolbar.allowsUserCustomization = false
+        return toolbar
     }
 
     private func buildMenu() {
@@ -60,5 +70,26 @@ final class AppDelegate: NSObject, NSApplicationDelegate {
         let mainMenu = NSMenu()
         mainMenu.addItem(appMenuItem)
         NSApp.mainMenu = mainMenu
+    }
+}
+
+extension AppDelegate: NSToolbarDelegate {
+
+    func toolbarDefaultItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [.toggleSidebar]
+    }
+
+    func toolbarAllowedItemIdentifiers(_ toolbar: NSToolbar) -> [NSToolbarItem.Identifier] {
+        [.toggleSidebar]
+    }
+
+    func toolbar(
+        _ toolbar: NSToolbar,
+        itemForItemIdentifier itemIdentifier: NSToolbarItem.Identifier,
+        willBeInsertedIntoToolbar flag: Bool
+    ) -> NSToolbarItem? {
+        // The system turns this into the sidebar toggle button that shows/hides
+        // the first sidebar NSSplitViewItem of the key window.
+        NSToolbarItem(itemIdentifier: itemIdentifier)
     }
 }

@@ -10,6 +10,8 @@ Two small Swift files, no storyboard:
 - wires up `NSApplication` and the app delegate programmatically
 - opens a centered, standard titled window rooted in an `NSSplitViewController`
   with three columns: source-list sidebar, message list, and detail pane
+- includes a window toolbar with a leading sidebar toggle button
+  (hide/show the sidebar, like Mail or Finder)
 - provides a minimal menu (Quit, ⌘Q)
 - terminates when the last window closes
 
