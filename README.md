@@ -1,0 +1,45 @@
+# minimal-appkit-starter
+
+The smallest macOS AppKit app that opens a window — everything in one Swift
+file, no storyboard, no nibs, no asset catalogs.
+
+## What you get
+
+A single `AppDelegate.swift` (`@main` entry point) that:
+
+- wires up `NSApplication` and the app delegate programmatically
+- opens a centered, standard titled window (`480×300`)
+- provides a minimal menu (Quit, ⌘Q)
+- terminates when the last window closes
+
+## Requirements
+
+- macOS 26 (Xcode 27) or later
+- Swift 5
+
+## Build & run
+
+```sh
+xcodebuild -project minimal-appkit-starter.xcodeproj \
+           -scheme minimal-appkit-starter \
+           -configuration Debug build
+
+open "$(xcodebuild -project minimal-appkit-starter.xcodeproj \
+                   -scheme minimal-appkit-starter \
+                   -configuration Debug \
+                   -showBuildSettings | awk '/BUILT_PRODUCTS_DIR/{print $3}')/minimal-appkit-starter.app"
+```
+
+Or simply open the project in Xcode and press ⌘R.
+
+## Project layout
+
+```
+minimal-appkit-starter/
+└── AppDelegate.swift              # the entire app
+minimal-appkit-starter.xcodeproj/ # build settings only (no storyboard)
+```
+
+## License
+
+[MIT](LICENSE)
